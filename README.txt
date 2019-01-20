@@ -8,8 +8,6 @@ Usage
 To use Ambush is very simple you just have to open in terminal the program and type the IP first with ‘’  as the example shows.
 Example: ‘192.168.0.1’
 
-/Users/paredesug/Desktop/ambush/ambushpic.png
-
 The reason why is that the database read the IP as a string and not as an integer.
 
 Requirements
