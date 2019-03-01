@@ -6,7 +6,6 @@ class col:
     GRE  = '\033[92m'
     RED  = '\033[91m'
     YEL  = '\033[93m'
-    BLUE = '\033[94m'
     END  = '\033[0m' 
 
 
@@ -33,6 +32,7 @@ def _work():
         print(col.GRE+'Continent: '+col.END) , match.continent
         print(col.GRE+'Time zone: '+col.END) , match.timezone
         print(col.GRE+'Subdivisions: '+col.END) , match.subdivisions
-        print(col.GRE+'Thanks for use Ambush.'+col.END)    
+        print
+        print(col.RED+'Thanks for use Ambush.'+col.END)    
     
 _work()
