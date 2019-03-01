@@ -5,8 +5,7 @@ The library that has been used is python-geoip which provides access to GeoIP da
 
 # Usage
 
-To use Ambush is very simple you just have to open in terminal the program and type the IP first with ‘’  as the example shows.
-Example: ‘192.168.0.1’
+To use Ambush is very simple you just have to open in terminal the program and type the IP. If you're struggling trying tp get the IP I can recomend you NSLOOKUP from your terminal or website http://www.kloth.net/services/nslookup.php
 
 ![](pic/ambushpic.png)
 
