@@ -9,7 +9,6 @@ To use Ambush is very simple you just have to open in terminal the program and t
 
 ![](pic/ambushimg.png)
 
-The reason why is that the database read the IP as a string and not as an integer.
 
 # Requirements
 
