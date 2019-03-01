@@ -24,7 +24,7 @@ _print_ambush()
 def _work():
     ip = ''
     
-   _get_ = raw_input(col.GRE+'What\'s the IP?: {}'.format(ip)+col.END)
+    _get_ = raw_input(col.GRE+'What\'s the IP?: {}'.format(ip)+col.END)
     
     match = geolite2.lookup(_get_)
     
