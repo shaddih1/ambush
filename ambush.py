@@ -1,28 +1,38 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
 from geoip import geolite2
+ 
+class col:
+    GRE  = '\033[92m'
+    RED  = '\033[91m'
+    YEL  = '\033[93m'
+    BLUE = '\033[94m'
+    END  = '\033[0m' 
 
-print('''
+
+def _print_ambush():
+    print('''
       ┌─┐┌┬┐┌┐ ┬ ┬┌─┐┬ ┬
       ├─┤│││├┴┐│ │└─┐├─┤
-      ┴ ┴┴ ┴└─┘└─┘└─┘┴ ┴ IP locator\033[31m
-      By:\033[0m \033[33mPudwill\033[0m \033[31m
-      github.com/\033[33mPudwill\033[0m
-      ''')
+      ┴ ┴┴ ┴└─┘└─┘└─┘┴ ┴ IP locator''')
+    print col.RED+'By:'+col.END, col.YEL+'Pudwill'+col.END
+    print col.RED+'github.com/'+col.END, col.YEL+'Pudwill'+col.END
+    print
+    
+_print_ambush()
 
-print('**Please use \033[32m\'\'\033[0m before typing the IP as the example shows.**')
-print('Example:\033[32m \'\033[0m192.168.0.1\033[32m\'\033[0m\n')
-_ip_ = input('\033[32mWhat\'s the IP?: \033[0m')
-while _ip_ is int:
-    print('try again')
-
-match = geolite2.lookup(_ip_)
-
-if match is not None:
-    print('\033[32mcountry:\033[0m') , match.country
-    print('\033[32mContinent:\033[0m') , match.continent
-    print('\033[32mTime zone:\033[0m') , match.timezone
-    print('\033[32mSubdivisions:\033[0m') , match.subdivisions
-    print('\033[44mThanks for use Ambush.\033[0m\n')
-
-
+def _work():
+    ip = ''
+    
+    _get_ = raw_input('What\'s the IP?: {}'.format(ip))
+    
+    match = geolite2.lookup(_get_)
+    
+    if match is not None:
+        print(col.GRE+'country: '+col.END) , match.country
+        print(col.GRE+'Continent: '+col.END) , match.continent
+        print(col.GRE+'Time zone: '+col.END) , match.timezone
+        print(col.GRE+'Subdivisions: '+col.END) , match.subdivisions
+        print(col.GRE+'Thanks for use Ambush.'+col.END)    
+    
+_work()
