@@ -7,7 +7,7 @@ The library that has been used is python-geoip which provides access to GeoIP da
 
 To use Ambush is very simple you just have to open in terminal the program and type the IP. If you're struggling trying tp get the IP I can recomend you NSLOOKUP from your terminal or website http://www.kloth.net/services/nslookup.php
 
-![](pic/ambushpic.png)
+![](pic/ambushimg.png)
 
 The reason why is that the database read the IP as a string and not as an integer.
 
