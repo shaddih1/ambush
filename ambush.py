@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import sys
@@ -48,7 +49,7 @@ def work():
         print(col.GRE+'Subdivisions: '+col.END) , match.subdivisions
         print (col.GRE+'Finished location in: '+col.END), total 
         print
-        print(col.RED+'Thanks for use Ambush.'+col.END)
+        print(col.RED+'Thanks for using Ambush.'+col.END)
         print
         
         sys.exit()
