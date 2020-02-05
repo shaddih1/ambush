@@ -32,7 +32,7 @@ def _print_ambush(quiet):
         print '-' * 50
         print
 
-def work(_get):
+def work():
     args = usage()
     _print_ambush(args.quiet)
 
