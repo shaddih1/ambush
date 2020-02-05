@@ -16,7 +16,7 @@ def usage():
     parser.add_argument('target', help='set IP address')
     parser.add_argument('-q', '--quiet', help='suppress header', action='store_true')
 
-    return parser.parser_args()
+    return parser.parse_args()
 
 def _print_ambush(quiet):
     if not quiet:
