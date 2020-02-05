@@ -15,7 +15,8 @@ def usage():
     parser = argparse.ArgumentParser()
     parser.add_argument('target', help='set IP address')
     parser.add_argument('-q', '--quiet', help='suppress header', action='store_true')
-
+    if len(sys.argv) < 2:
+        work()
     return parser.parse_args()
 
 def _print_ambush(quiet):
