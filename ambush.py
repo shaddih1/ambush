@@ -4,9 +4,10 @@
 import sys
 import argparse
 import git
-
 from geoip import geolite2
 from datetime import datetime
+
+from utils import *
 
 class col:
     GRE  = '\033[92m'
@@ -27,6 +28,7 @@ def usage():
     # print header with help message and exit
     if len(sys.argv) < 2:
         print(header)
+        print
         parser.print_help()
         sys.exit(0)
     return parser.parse_args()
@@ -45,12 +47,14 @@ def _print_ambush(quiet):
 def work():
     args = usage()
     _print_ambush(args.quiet)
-    # update ambush
-    if args.update:
-        git = git.cmd.Git(git_dir)
-        git.pull
-
     target = args.target
+    # update ambush
+    if not target:
+        if args.update:
+            utils.update()
+
+    if args.update:
+        utils.update()
 
     if not target:
         print '[!] Wrong target'

@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 
+import git
 from datetime import datetime
+
+def update():
+    git = git.cmd.Git(git_dir)
+    git.pull
 
 def total():
     time1 = datetime.now()
