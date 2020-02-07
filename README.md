@@ -35,7 +35,7 @@ To use Ambush you will need any OS, the only requirement is have installed Pytho
 
 ## MacOS
 
-You should install brew https://brew.sh.
+You should install brew, go to this link https://brew.sh.
     
         $ brew install libGeoIP
 
