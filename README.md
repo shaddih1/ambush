@@ -1,6 +1,6 @@
-# Ambush
-
 ![language](https://img.shields.io/badge/language-python-blue.svg
+
+# Ambush
 
 This software has been programmed to locate IPs where we are going to look them up according databases.
 The library that has been used is python-geoip which provides access to GeoIP databases, here is the link if you want to look it up https://pythonhosted.org/python-geoip/
