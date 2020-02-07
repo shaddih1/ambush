@@ -17,13 +17,12 @@ To use Ambush is very simple you just have to open in terminal the program and t
     usage: ambush.py [-h] [-q] [-u] target
 
     positional arguments:
-      target        info
+      target        set a target to locate
 
     optional arguments:
       -h, --help    show this help message and exit
-      -q, --quiet
-      -u, --update
-
+      -u, --update  update Ambush to the latest version
+      -q, --quiet   suppress header 
 
 # Requirements
 
