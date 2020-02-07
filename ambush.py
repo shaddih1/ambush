@@ -1,70 +1,66 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# -*- coding: utf -*-
 
-import sys
-import argparse
-import git
-from geoip import geolite2
+import sys, argparse
 from datetime import datetime
-
-from utils import *
-
-class col:
-    GRE  = '\033[92m'
-    RED  = '\033[91m'
-    YEL  = '\033[93m'
-    END  = '\033[0m'
+#from geoip import geolite2
+GREEN, RED, YELLOW, END = '\033[92m', '\033[91m', '\033[93m', '\033[0m'
 
 header = '''
-      ┌─┐┌┬┐┌┐ ┬ ┬┌─┐┬ ┬
-      ├─┤│││├┴┐│ │└─┐├─┤
-      ┴ ┴┴ ┴└─┘└─┘└─┘┴ ┴ IP locator'''
+┌─┐┌┬┐┌┐ ┬ ┬┌─┐┬ ┬
+├─┤│││├┴┐│ │└─┐├─┤
+┴ ┴┴ ┴└─┘└─┘└─┘┴ ┴ IP locator'''
+
+def shutdown():
+    print('\n{}Thanks for using Ambush.{}\n'.format())
+    sys.exit(0)
+
+# display heading
+def _print_header(quiet):
+    if not quiet:
+        lines = '-' * 50
+        print ('\n' + lines)
+        print (GREEN+'Date and Time:'+END), datetime.now()
+        print(banner)
+        print RED+'By:'+END, YELLOW+'InsaneGroove'+END
+        print RED+'github.com/'+END, YELLOW+'InsaneGroove'+END
+        print (lines + '\n')
 
 def usage():
-    parser = argparse.ArgumentParser(prog = 'Ambush')
-    parser.add_argument('target', help='set an IP address')
-    parser.add_argument('-q', '--quiet', help='suppress header', action='store_true')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('target', help='info')
+    parser.add_argument('-q', '--quiet', help='', action='store_true')
     parser.add_argument('-u', '--update', help='', action='store_true')
-    # print header with help message and exit
     if len(sys.argv) < 2:
-        print(header)
-        print
+        print(header + '\n')
         parser.print_help()
         sys.exit(0)
     return parser.parse_args()
 
-def _print_ambush(quiet):
-    if not quiet:
-        print
-        print '-' * 50
-        print (col.GRE+'Date and Time:'+col.END), datetime.now()
-        print(header)
-        print col.RED+'By:'+col.END, col.YEL+'InsaneGroove'+col.END
-        print col.RED+'github.com/'+col.END, col.YEL+'InsaneGroove'+col.END
-        print '-' * 50
-        print
-
-def work():
-    args = usage()
-    _print_ambush(args.quiet)
-    target = args.target
-    # update ambush
+def work(target):
     if not target:
-        if args.update:
-            utils.update()
+        target = raw_input(GREEN+'What\'s the IP?: '+END)
 
-    if args.update:
-        utils.update()
-
-    if not target:
-        print '[!] Wrong target'
-        work()
+    time1 = datetime.now()
+    time2 = datetime.now()
+    total = time2 - time1
 
     match = geolite2.lookup(target)
 
     if match is not None:
-        utils.match(match)
+        print(GREEN+'country: '+END) , match.country
+        print(GREEN+'Continent: '+END) , match.continent
+        print(GREEN+'Time zone: '+END) , match.timezone
+        print(GREEN+'Subdivisions: '+END) , match.subdivisions
+        print (GREEN+'Finished location in: '+END), total
+        shutdown()
 
-        sys.exit()
+def main():
+    args = usage()
+    # update Ambush
+    if args.update:
+        'update'
+    _print_header(args.quiet)
+    work(args.target)
 
-work()
+main()
