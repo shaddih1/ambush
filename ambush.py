@@ -1,7 +1,10 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
-import sys, argparse, logging
+# -*- coding: utf-8 -*-
+import sys
+import argparse
+import git
+
 from geoip import geolite2
 from datetime import datetime
 
@@ -11,11 +14,21 @@ class col:
     YEL  = '\033[93m'
     END  = '\033[0m'
 
-def usage():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('target', help='set IP address')
-    parser.add_argument('-q', '--quiet', help='suppress header', action='store_true')
+header = '''
+      ┌─┐┌┬┐┌┐ ┬ ┬┌─┐┬ ┬
+      ├─┤│││├┴┐│ │└─┐├─┤
+      ┴ ┴┴ ┴└─┘└─┘└─┘┴ ┴ IP locator'''
 
+def usage():
+    parser = argparse.ArgumentParser(prog = 'Ambush')
+    parser.add_argument('target', help='set an IP address')
+    parser.add_argument('-q', '--quiet', help='suppress header', action='store_true')
+    parser.add_argument('-u', '--update', help='', action='store_true')
+    # print header with help message and exit
+    if len(sys.argv) < 2:
+        print(header)
+        parser.print_help()
+        sys.exit(0)
     return parser.parse_args()
 
 def _print_ambush(quiet):
@@ -23,10 +36,7 @@ def _print_ambush(quiet):
         print
         print '-' * 50
         print (col.GRE+'Date and Time:'+col.END), datetime.now()
-        print('''
-      ┌─┐┌┬┐┌┐ ┬ ┬┌─┐┬ ┬
-      ├─┤│││├┴┐│ │└─┐├─┤
-      ┴ ┴┴ ┴└─┘└─┘└─┘┴ ┴ IP locator''')
+        print(header)
         print col.RED+'By:'+col.END, col.YEL+'InsaneGroove'+col.END
         print col.RED+'github.com/'+col.END, col.YEL+'InsaneGroove'+col.END
         print '-' * 50
@@ -35,31 +45,21 @@ def _print_ambush(quiet):
 def work():
     args = usage()
     _print_ambush(args.quiet)
+    # update ambush
+    if args.update:
+        git = git.cmd.Git(git_dir)
+        git.pull
 
-    time1 = datetime.now()
-    time2 = datetime.now()
-    total = time2 - time1
+    target = args.target
 
-    if args.target:
-        _get = args.target
-    else:
-        _get = raw_input(col.GRE+ 'What\'s the IP?: '+col.END)
-
-    if not _get:
-        print '[!] Wrong input'
+    if not target:
+        print '[!] Wrong target'
         work()
 
-    match = geolite2.lookup(_get)
+    match = geolite2.lookup(target)
 
     if match is not None:
-        print(col.GRE+'country: '+col.END) , match.country
-        print(col.GRE+'Continent: '+col.END) , match.continent
-        print(col.GRE+'Time zone: '+col.END) , match.timezone
-        print(col.GRE+'Subdivisions: '+col.END) , match.subdivisions
-        print (col.GRE+'Finished location in: '+col.END), total
-        print
-        print(col.RED+'Thanks for using Ambush.'+col.END)
-        print
+        utils.match(match)
 
         sys.exit()
 
