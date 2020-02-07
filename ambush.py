@@ -45,7 +45,10 @@ def work(target):
     time2 = datetime.now()
     total = time2 - time1
 
-    match = geolite2.lookup(target)
+    try:
+        match = geolite2.lookup(target)
+    except ValueError:
+        print '[!] Wrong target'
 
     if match is not None:
         print(GREEN+'country: '+END) , match.country
