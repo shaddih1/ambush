@@ -21,7 +21,7 @@ def _print_header(quiet):
         lines = '-' * 50
         print ('\n' + lines)
         print (GREEN+'Date and Time:'+END), datetime.now()
-        print(banner)
+        print(header)
         print RED+'By:'+END, YELLOW+'InsaneGroove'+END
         print RED+'github.com/'+END, YELLOW+'InsaneGroove'+END
         print (lines + '\n')
