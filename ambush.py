@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf -*-
 
-import sys, argparse
+import sys, argparse, git
 from datetime import datetime
 from geoip import geolite2
 GREEN, RED, YELLOW, END = '\033[92m', '\033[91m', '\033[93m', '\033[0m'
@@ -28,9 +28,9 @@ def _print_header(quiet):
 
 def usage():
     parser = argparse.ArgumentParser()
-    parser.add_argument('target', help='info')
-    parser.add_argument('-q', '--quiet', help='', action='store_true')
-    parser.add_argument('-u', '--update', help='', action='store_true')
+    parser.add_argument('target', help='set a target to locate')
+    parser.add_argument('-u', '--update', help='update Ambush to the lastest version', action='store_true')
+    parser.add_argument('-q', '--quiet', help='suppress header', action='store_true')
     if len(sys.argv) < 2:
         print(header + '\n')
         parser.print_help()
@@ -38,7 +38,6 @@ def usage():
     return parser.parse_args()
 
 def work(target):
-
     time1 = datetime.now()
     time2 = datetime.now()
     total = time2 - time1
@@ -60,7 +59,8 @@ def main():
     args = usage()
     # update Ambush
     if args.update:
-        'update'
+        g = git.cmd.Git(git_dir)
+        g.pull()
     _print_header(args.quiet)
     work(args.target)
 
