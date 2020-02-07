@@ -47,16 +47,17 @@ def work(target):
 
     try:
         match = geolite2.lookup(target)
+
+        if match is not None:
+            print(GREEN+'country: '+END) , match.country
+            print(GREEN+'Continent: '+END) , match.continent
+            print(GREEN+'Time zone: '+END) , match.timezone
+            print(GREEN+'Subdivisions: '+END) , match.subdivisions
+            print (GREEN+'Finished location in: '+END), total
+            shutdown()
+            
     except ValueError:
         print '[!] Wrong target'
-
-    if match is not None:
-        print(GREEN+'country: '+END) , match.country
-        print(GREEN+'Continent: '+END) , match.continent
-        print(GREEN+'Time zone: '+END) , match.timezone
-        print(GREEN+'Subdivisions: '+END) , match.subdivisions
-        print (GREEN+'Finished location in: '+END), total
-        shutdown()
 
 def main():
     args = usage()
