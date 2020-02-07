@@ -3,7 +3,7 @@
 
 import sys, argparse
 from datetime import datetime
-#from geoip import geolite2
+from geoip import geolite2
 GREEN, RED, YELLOW, END = '\033[92m', '\033[91m', '\033[93m', '\033[0m'
 
 header = '''
