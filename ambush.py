@@ -38,8 +38,6 @@ def usage():
     return parser.parse_args()
 
 def work(target):
-    if not target:
-        target = raw_input(GREEN+'What\'s the IP?: '+END)
 
     time1 = datetime.now()
     time2 = datetime.now()
@@ -55,9 +53,8 @@ def work(target):
             print(GREEN+'Subdivisions: '+END) , match.subdivisions
             print (GREEN+'Finished location in: '+END), total
             shutdown()
-            
     except ValueError:
-        print '[!] Wrong target'
+        print('\n[!] Wrong target, please try again\n')
 
 def main():
     args = usage()
