@@ -1,3 +1,5 @@
+![language](https://img.shields.io/badge/language-python-blue.svg)
+
 # Ambush
 
 This software has been programmed to locate IPs where we are going to look them up according databases.
@@ -8,6 +10,20 @@ The library that has been used is python-geoip which provides access to GeoIP da
 To use Ambush is very simple you just have to open in terminal the program and type the IP. If you're struggling trying tp get the IP I can recomend you NSLOOKUP from your terminal or website http://www.kloth.net/services/nslookup.php
 
 ![](pic/ambush.png)
+
+    ┌─┐┌┬┐┌┐ ┬ ┬┌─┐┬ ┬
+    ├─┤│││├┴┐│ │└─┐├─┤
+    ┴ ┴┴ ┴└─┘└─┘└─┘┴ ┴ IP locator
+
+    usage: ambush.py [-h] [-q] [-u] target
+
+    positional arguments:
+      target        info
+
+    optional arguments:
+      -h, --help    show this help message and exit
+      -q, --quiet
+      -u, --update
 
 
 # Requirements
