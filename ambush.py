@@ -12,8 +12,11 @@ header = '''
 ┴ ┴┴ ┴└─┘└─┘└─┘┴ ┴ IP locator'''
 
 def shutdown():
-    print('\n{}Thanks for using Ambush.{}\n'.format())
+    print(RED+'\nThanks for using Ambush.\n'+END)
     sys.exit(0)
+
+def update():
+
 
 # display heading
 def _print_header(quiet):
@@ -59,7 +62,7 @@ def main():
     args = usage()
     # update Ambush
     if args.update:
-        update = subprocess.check_output(["git", "pull"])
+        update = subprocess.call(["git", "pull"])
     _print_header(args.quiet)
     work(args.target)
 
