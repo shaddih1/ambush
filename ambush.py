@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf -*-
+# -*- coding: utf-8 -*-
 
 import sys, argparse, subprocess
 from datetime import datetime
