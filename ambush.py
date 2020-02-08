@@ -24,7 +24,7 @@ def _print_header(quiet):
         print(header)
         print RED+'By:'+END, YELLOW+'InsaneGroove'+END
         print RED+'github.com/'+END, YELLOW+'InsaneGroove'+END
-        print (lines + '\n')
+        print (lines)
 
 def usage():
     parser = argparse.ArgumentParser()
@@ -46,7 +46,7 @@ def work(target):
         match = geolite2.lookup(target)
 
         if match is not None:
-            print(GREEN+'country: '+END) , match.country
+            print(GREEN+'\ncountry: '+END) , match.country
             print(GREEN+'Continent: '+END) , match.continent
             print(GREEN+'Time zone: '+END) , match.timezone
             print(GREEN+'Subdivisions: '+END) , match.subdivisions
