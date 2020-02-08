@@ -58,8 +58,12 @@ def work(target):
 def main():
     args = usage()
     # update Ambush
-    if args.update:
-        update = subprocess.call(["git", "pull"])
+    if len(sys.argv) == 2:
+        if args.update:
+            update = subprocess.call(['git', 'pull'])
+    else:
+        if args.update:
+            update = subprocess.call(['git', 'pull'])
     _print_header(args.quiet)
     work(args.target)
 
