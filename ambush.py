@@ -54,6 +54,7 @@ def work(target):
             shutdown()
     except ValueError:
         print('\n[!] Wrong target, please try again\n')
+        shutdown()
 
 def main():
     args = usage()
