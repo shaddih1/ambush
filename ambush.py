@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf -*-
 
-import sys, argparse, git
+import sys, argparse, subprocess
 from datetime import datetime
 from geoip import geolite2
 GREEN, RED, YELLOW, END = '\033[92m', '\033[91m', '\033[93m', '\033[0m'
@@ -59,8 +59,7 @@ def main():
     args = usage()
     # update Ambush
     if args.update:
-        g = git.cmd.Git(git_dir)
-        g.pull()
+        update = subprocess.check_output(["git", "pull"])
     _print_header(args.quiet)
     work(args.target)
 
