@@ -15,9 +15,6 @@ def shutdown():
     print(RED+'\nThanks for using Ambush.\n'+END)
     sys.exit(0)
 
-def update():
-
-
 # display heading
 def _print_header(quiet):
     if not quiet:
