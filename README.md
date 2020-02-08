@@ -22,7 +22,7 @@ To use Ambush is very simple you just have to open in terminal the program and t
     optional arguments:
       -h, --help    show this help message and exit
       -u, --update  update Ambush to the latest version
-      -q, --quiet   suppress header 
+      -q, --quiet   suppress header
 
 # Requirements
 
@@ -32,16 +32,10 @@ To use Ambush you will need any OS, the only requirement is have installed Pytho
 
         $ pip install -r requirements.txt
 
-## MacOS
-
-You should install brew, go to this link https://brew.sh.
-    
-        $ brew install libGeoIP
-
 # Updates
 
 According the time Ambush is going to improve its functions adding more features at it. Every feedback is very welcome.
-If you have any questions or feedbacks, feel free to contact me in twitter as [**@InsanePgroove**](https://twitter.com/insanePgroove) 
+If you have any questions or feedbacks, feel free to contact me in twitter as [**@InsanePgroove**](https://twitter.com/insanePgroove)
 
 # Look me in Platzi
 
@@ -50,4 +44,4 @@ If you have any questions or feedbacks, feel free to contact me in twitter as [*
 
 Modified by [**@shaddih1**](https://github.com/shaddih1)
 
-Thanks for using Ambush. 
+Thanks for using Ambush.
