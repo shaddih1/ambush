@@ -36,8 +36,6 @@ To use Ambush you will need any OS, the only requirement is have installed Pytho
 
 According the time Ambush is going to improve its functions adding more features at it. Every feedback is very welcome.
 
-# Look me in Platzi
-
 Modified by [**@shaddih1**](https://github.com/shaddih1)
 
 Thanks for using Ambush.
